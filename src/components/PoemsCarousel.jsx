@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { poemsData } from '../data/poems'
 
 export default function PoemsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isReading, setIsReading] = useState(false)
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'ArrowLeft') goToPrevious()
+      if (e.key === 'ArrowRight') goToNext()
+      if (e.key === 'Escape') setIsReading(false)
+    }
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [currentIndex])
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + poemsData.length) % poemsData.length)
