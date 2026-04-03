@@ -57,7 +57,7 @@ export default function Footer() {
               <li>
                 <motion.a
                   whileHover={linkHover}
-                  href="https://amanjoshi.vercel.app"
+                  href="https://amanjoshi-portfolio.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#ff6b6b] transition-colors"
