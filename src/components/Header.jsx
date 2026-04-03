@@ -55,7 +55,7 @@ export default function Header() {
               variants={linkVariants}
               initial="hidden"
               animate="visible"
-              onClick={() => item.id === 'portfolio' ? window.open('https://amanjoshi.vercel.app', '_blank') : scrollToSection(item.id)}
+              onClick={() => item.id === 'portfolio' ? window.open('https://amanjoshi-portfolio.vercel.app/', '_blank') : scrollToSection(item.id)}
               className="text-gray-300 hover:text-[#ff6b6b] text-base font-medium transition-colors border-b-2 border-transparent hover:border-[#ff6b6b] pb-1"
             >
               {item.id === 'portfolio' ? '← Back to Portfolio' : item.label}
