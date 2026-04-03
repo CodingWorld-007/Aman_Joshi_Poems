@@ -19,6 +19,7 @@ export default function PoemCard({ poem, onClick }) {
     <motion.div
       variants={cardVariants}
       initial="hidden"
+      animate="visible"
       whileHover="hover"
       onClick={onClick}
       className="bg-gradient-to-br from-[#1a1a2e]/60 to-[#16213e]/60 border border-[#2a2a3e] rounded-lg p-6 cursor-pointer transition-all group overflow-hidden backdrop-blur-sm"
