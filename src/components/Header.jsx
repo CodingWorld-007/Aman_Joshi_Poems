@@ -30,10 +30,8 @@ export default function Header() {
 
   return (
     <motion.header 
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="fixed top-0 left-0 right-0 z-1000 bg-black/95 backdrop-blur-lg border-b border-[#2a2a3e] p-6"
+      initial={{ opacity: 1, y: 0 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-lg border-b border-[#2a2a3e] p-6"
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <div className="flex flex-col gap-1">
