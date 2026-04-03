@@ -17,6 +17,14 @@ export default function PoemsCarousel() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [currentIndex])
 
+  // Auto-rotate poems every 30 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % poemsData.length)
+    }, 30000)
+    return () => clearInterval(timer)
+  }, [])
+
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + poemsData.length) % poemsData.length)
   }
