@@ -74,7 +74,7 @@ export default function PoemsCarousel() {
               whileHover={{ scale: 1.02 }}
               className="bg-gradient-to-br from-[#1a1a2e]/80 to-[#16213e]/80 backdrop-blur-md border border-[#2a2a3e] rounded-2xl overflow-hidden cursor-pointer group shadow-2xl hover:shadow-[#ff6b6b]/20 transition-all duration-300"
             >
-              {/* Image Section */}
+              {/* Image Section - Full Phone Resolution */}
               {currentPoem.image && (
                 <div className="relative w-full bg-black/50">
                   <motion.img
@@ -83,36 +83,29 @@ export default function PoemsCarousel() {
                     transition={{ type: 'spring', stiffness: 60, damping: 15 }}
                     src={currentPoem.image}
                     alt={currentPoem.title}
-                    className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto object-contain group-hover:opacity-90 transition-opacity duration-500"
                   />
                 </div>
               )}
 
-              {/* Content Section */}
-              <div className="p-8 md:p-10">
-                <div className="flex justify-between items-start gap-4 mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-[#ff6b6b] transition-colors">
-                      {currentPoem.title}
-                    </h3>
-                    <span className="inline-block bg-[#ff6b6b]/10 text-[#ff6b6b] px-4 py-1 rounded-full text-sm font-semibold capitalize">
-                      {currentPoem.theme}
-                    </span>
-                  </div>
+              {/* Minimal Content Section */}
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#ff6b6b] transition-colors">
+                  {currentPoem.title}
+                </h3>
+                <div className="flex gap-3 items-center">
+                  <span className="bg-[#ff6b6b]/10 text-[#ff6b6b] px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                    {currentPoem.theme}
+                  </span>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsReading(true)}
+                    className="ml-auto px-4 py-2 bg-[#ff6b6b] text-black font-bold rounded-lg hover:shadow-lg hover:shadow-[#ff6b6b]/50 transition-all"
+                  >
+                    Read
+                  </motion.button>
                 </div>
-
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed italic">
-                  {currentPoem.excerpt}
-                </p>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsReading(true)}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-[#ff6b6b] to-[#ffb347] text-black font-bold rounded-lg hover:shadow-lg hover:shadow-[#ff6b6b]/50 transition-all"
-                >
-                  Read Full Poem →
-                </motion.button>
               </div>
             </motion.div>
           </motion.div>
