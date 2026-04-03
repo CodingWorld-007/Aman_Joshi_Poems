@@ -58,6 +58,29 @@ export default function PoemsCarousel() {
         className="absolute top-1/4 right-10 w-72 h-72 bg-gradient-to-br from-[#ff6b6b]/10 to-transparent rounded-full blur-3xl pointer-events-none"
       ></motion.div>
 
+      <motion.div
+        animate={{ 
+          y: [0, 40, 0],
+          opacity: [0.2, 0.4, 0.2]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        className="absolute bottom-1/4 left-10 w-64 h-64 bg-gradient-to-tl from-[#ffb347]/8 to-transparent rounded-full blur-3xl pointer-events-none"
+      ></motion.div>
+
+      {/* Decorative header */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12"
+      >
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#ff6b6b]"></div>
+          <span className="text-[#ff6b6b] text-xs tracking-widest font-semibold">FEATURED COLLECTION</span>
+          <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#ff6b6b]"></div>
+        </div>
+      </motion.div>
+
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,37 +105,37 @@ export default function PoemsCarousel() {
           >
             <motion.div
               onClick={() => setIsReading(true)}
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-[#1a1a2e]/80 to-[#16213e]/80 backdrop-blur-md border border-[#2a2a3e] rounded-2xl overflow-hidden cursor-pointer group shadow-2xl hover:shadow-[#ff6b6b]/20 transition-all duration-300"
+              whileHover={{ scale: 1.03 }}
+              className="bg-gradient-to-br from-[#1a1a2e]/70 to-[#16213e]/70 backdrop-blur-xl border border-[#2a2a3e]/60 rounded-2xl overflow-hidden cursor-pointer group shadow-2xl hover:shadow-[#ff6b6b]/30 transition-all duration-300 card-premium"
             >
               {/* Image Section - Full Phone Resolution */}
               {currentPoem.image && (
-                <div className="relative w-full bg-black/50">
+                <div className="relative w-full bg-black/50 border-b border-[#2a2a3e]/40">
                   <motion.img
                     initial={{ scale: 0.95 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 60, damping: 15 }}
                     src={currentPoem.image}
                     alt={currentPoem.title}
-                    className="w-full h-auto object-contain group-hover:opacity-90 transition-opacity duration-500"
+                    className="w-full h-auto object-contain group-hover:opacity-90 transition-opacity duration-300"
                   />
                 </div>
               )}
 
               {/* Minimal Content Section */}
-              <div className="p-6 md:p-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#ff6b6b] transition-colors">
+              <div className="p-6 md:p-8 bg-gradient-to-b from-[#1a1a2e]/50 to-[#16213e]/30">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[#ff6b6b] transition-colors font-serif">
                   {currentPoem.title}
                 </h3>
                 <div className="flex gap-3 items-center">
-                  <span className="bg-[#ff6b6b]/10 text-[#ff6b6b] px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                  <span className="bg-gradient-to-r from-[#ff6b6b]/20 to-[#ffb347]/10 text-[#ff6b6b] px-3 py-1 rounded-full text-sm font-semibold capitalize border border-[#ff6b6b]/30">
                     {currentPoem.theme}
                   </span>
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.1, boxShadow: '0 10px 30px rgba(255, 107, 107, 0.4)' }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setIsReading(true)}
-                    className="ml-auto px-4 py-2 bg-[#ff6b6b] text-black font-bold rounded-lg hover:shadow-lg hover:shadow-[#ff6b6b]/50 transition-all"
+                    className="ml-auto px-5 py-2 bg-gradient-to-r from-[#ff6b6b] to-[#ffb347] text-black font-bold rounded-lg hover:shadow-lg transition-all text-sm"
                   >
                     Read
                   </motion.button>
